@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-// In production (Render), frontend and backend are on the same domain.
-// VITE_API_URL is set in Render's environment variables for the static site.
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const BASE_URL = import.meta.env.MODE === 'production' ? '/api' : 'http://localhost:5000/api';
 
 const API = axios.create({
   baseURL: BASE_URL,
