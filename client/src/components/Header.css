@@ -1,0 +1,35 @@
+/* Header styles — minimal since main header is inside Sidebar */
+.dash-header-standalone {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.nav-links-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links-horizontal a {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all var(--tx-fast);
+}
+
+.nav-links-horizontal a.active,
+.nav-links-horizontal a:hover {
+  color: var(--text);
+  background: rgba(255,255,255,0.05);
+  text-decoration: none;
+}
+
+.toggle-btn {
+  margin-left: 8px;
+}

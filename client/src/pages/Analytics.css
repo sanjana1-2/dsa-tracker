@@ -1,0 +1,123 @@
+/* ─── Analytics Layout ────────────────────────────── */
+.analytics-header {
+  margin-bottom: 32px;
+}
+
+.analytics-header h1 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+/* ─── Overall Card ────────────────────────────────── */
+.overall-card {
+  background: linear-gradient(135deg, rgba(108,99,255,0.1), rgba(0,212,168,0.05));
+}
+
+.pct-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ─── Metrics Grid ────────────────────────────────── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .metrics-grid { grid-template-columns: 1fr; }
+}
+
+.metric-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  transition: all var(--tx-med);
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.metric-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.04);
+  flex-shrink: 0;
+}
+
+.metric-value {
+  font-size: 1.7rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.metric-label {
+  font-weight: 500;
+}
+
+.metric-sub {
+  margin-top: 2px;
+}
+
+/* ─── Difficulty Bars ─────────────────────────────── */
+.diff-row-full {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.diff-row-full:last-child { margin-bottom: 0; }
+
+.diff-bar-bg-full {
+  flex: 1;
+  height: 8px;
+  background: var(--line);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.diff-bar-fill-full {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Topic Grid ──────────────────────────────────── */
+.topic-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.topic-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.topic-name {
+  width: 140px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text);
+  font-weight: 500;
+}

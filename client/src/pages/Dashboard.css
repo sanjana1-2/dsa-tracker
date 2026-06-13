@@ -1,0 +1,282 @@
+/* ─── Dashboard Layout ──────────────────────────────── */
+.dashboard {
+  min-height: 100%;
+}
+
+.day-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.month-chip {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  background: rgba(108,99,255,0.12);
+  border: 1px solid rgba(108,99,255,0.3);
+  border-radius: 20px;
+  padding: 3px 12px;
+  margin-bottom: 8px;
+}
+
+.day-title {
+  font-size: 2rem;
+  margin-bottom: 6px;
+  line-height: 1.1;
+}
+
+.day-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  padding-top: 8px;
+}
+
+.day-badge {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  background: var(--panel2);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 5px 14px;
+}
+
+/* ─── Two-Column Layout ─────────────────────────────── */
+.mission-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 960px) {
+  .mission-layout { grid-template-columns: 1fr; }
+  .mission-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .mission-sidebar .mt-4 { margin-top: 0; }
+}
+
+@media (max-width: 600px) {
+  .mission-sidebar { grid-template-columns: 1fr; }
+}
+
+/* ─── Progress Panel ────────────────────────────────── */
+.progress-panel {
+  text-align: center;
+}
+
+.pct-ring {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+}
+
+.ring-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pct-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pct-num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--text);
+  line-height: 1;
+}
+
+.progress-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.pstat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.pstat-val {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--font-mono);
+}
+
+.pstat-label { line-height: 1; }
+
+.pstat-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--line);
+}
+
+/* ─── Difficulty Panel ──────────────────────────────── */
+.diff-panel {}
+
+.diff-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.diff-row:first-of-type { margin-top: 8px; }
+
+.diff-bar-bg {
+  flex: 1;
+  height: 6px;
+  background: var(--line);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.diff-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.5s ease;
+}
+
+.diff-fill-easy   { background: var(--easy); }
+.diff-fill-medium { background: var(--med); }
+.diff-fill-hard   { background: var(--hard); }
+
+/* ─── Question Cards ────────────────────────────────── */
+.question-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.q-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  transition: all var(--tx-med);
+  cursor: default;
+}
+
+.q-card:hover {
+  transform: translateX(3px);
+  border-color: var(--line-hover);
+  box-shadow: var(--shadow-md);
+}
+
+.q-card.q-solved {
+  opacity: 0.55;
+  border-color: var(--line);
+}
+
+.q-card.q-solved .q-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.q-check {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: all var(--tx-fast);
+  background: transparent;
+}
+
+.q-check:hover {
+  background: rgba(255,255,255,0.06);
+  transform: scale(1.1);
+}
+
+.check-icon.solved { color: var(--accent); }
+.check-icon.pending { color: var(--text-dim); }
+
+.q-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.q-title {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--tx-fast);
+}
+
+.q-title:hover { color: var(--accent2); text-decoration: none; }
+
+.q-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.q-solve-btn {
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity var(--tx-fast);
+}
+
+.q-card:hover .q-solve-btn { opacity: 1; }
+
+/* ─── Toast ─────────────────────────────────────────── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 14px 22px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out, slideOut 0.3s ease-in 2.2s forwards;
+  box-shadow: var(--shadow-md);
+}
+
+.toast.success {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+}
+
+.toast.error {
+  background: linear-gradient(135deg, var(--hard), #c0392b);
+}
+
+@keyframes slideOut {
+  to { opacity: 0; transform: translateX(20px); }
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 640px) {
+  .day-title { font-size: 1.5rem; }
+  .day-header { flex-direction: column; }
+  .q-solve-btn { display: none; }
+}
