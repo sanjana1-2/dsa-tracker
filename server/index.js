@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === 'production') {
   const clientBuild = path.join(__dirname, '../client/dist');
   app.use(express.static(clientBuild));
   // Catch-all: return React app for any non-API route
-  app.get('*', (req, res) => {
+  app.get('/*', (req, res) => {
     res.sendFile(path.join(clientBuild, 'index.html'));
   });
 }
